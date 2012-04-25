@@ -1,0 +1,222 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4F071D541548AAFD00D02D55 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4F071D531548AAFD00D02D55 /* main.cpp */; };
+		4F071D561548AAFD00D02D55 /* delcom_stoplight.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4F071D551548AAFD00D02D55 /* delcom_stoplight.1 */; };
+		4F071D5D1548AB2A00D02D55 /* hid.c in Sources */ = {isa = PBXBuildFile; fileRef = 4F071D5C1548AB2A00D02D55 /* hid.c */; };
+		4F071D601548AC8700D02D55 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F071D5F1548AC8700D02D55 /* IOKit.framework */; };
+		4F071D621548AC9200D02D55 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F071D611548AC9200D02D55 /* CoreFoundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4F071D4D1548AAFD00D02D55 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				4F071D561548AAFD00D02D55 /* delcom_stoplight.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4F071D4F1548AAFD00D02D55 /* delcom-stoplight */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "delcom-stoplight"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F071D531548AAFD00D02D55 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		4F071D551548AAFD00D02D55 /* delcom_stoplight.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = delcom_stoplight.1; sourceTree = "<group>"; };
+		4F071D5C1548AB2A00D02D55 /* hid.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = hid.c; sourceTree = "<group>"; };
+		4F071D5E1548AB3800D02D55 /* hidapi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hidapi.h; sourceTree = "<group>"; };
+		4F071D5F1548AC8700D02D55 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		4F071D611548AC9200D02D55 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F071D4C1548AAFD00D02D55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F071D621548AC9200D02D55 /* CoreFoundation.framework in Frameworks */,
+				4F071D601548AC8700D02D55 /* IOKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4F071D441548AAFD00D02D55 = {
+			isa = PBXGroup;
+			children = (
+				4F071D611548AC9200D02D55 /* CoreFoundation.framework */,
+				4F071D5F1548AC8700D02D55 /* IOKit.framework */,
+				4F071D521548AAFD00D02D55 /* delcom-stoplight */,
+				4F071D501548AAFD00D02D55 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4F071D501548AAFD00D02D55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F071D4F1548AAFD00D02D55 /* delcom-stoplight */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F071D521548AAFD00D02D55 /* delcom-stoplight */ = {
+			isa = PBXGroup;
+			children = (
+				4F071D5E1548AB3800D02D55 /* hidapi.h */,
+				4F071D5C1548AB2A00D02D55 /* hid.c */,
+				4F071D531548AAFD00D02D55 /* main.cpp */,
+				4F071D551548AAFD00D02D55 /* delcom_stoplight.1 */,
+			);
+			path = "delcom-stoplight";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4F071D4E1548AAFD00D02D55 /* delcom-stoplight */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F071D591548AAFD00D02D55 /* Build configuration list for PBXNativeTarget "delcom-stoplight" */;
+			buildPhases = (
+				4F071D4B1548AAFD00D02D55 /* Sources */,
+				4F071D4C1548AAFD00D02D55 /* Frameworks */,
+				4F071D4D1548AAFD00D02D55 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "delcom-stoplight";
+			productName = "delcom-stoplight";
+			productReference = 4F071D4F1548AAFD00D02D55 /* delcom-stoplight */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4F071D461548AAFD00D02D55 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = 4F071D491548AAFD00D02D55 /* Build configuration list for PBXProject "delcom-stoplight" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4F071D441548AAFD00D02D55;
+			productRefGroup = 4F071D501548AAFD00D02D55 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4F071D4E1548AAFD00D02D55 /* delcom-stoplight */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4F071D4B1548AAFD00D02D55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F071D541548AAFD00D02D55 /* main.cpp in Sources */,
+				4F071D5D1548AB2A00D02D55 /* hid.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		4F071D571548AAFD00D02D55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		4F071D581548AAFD00D02D55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		4F071D5A1548AAFD00D02D55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4F071D5B1548AAFD00D02D55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4F071D491548AAFD00D02D55 /* Build configuration list for PBXProject "delcom-stoplight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F071D571548AAFD00D02D55 /* Debug */,
+				4F071D581548AAFD00D02D55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F071D591548AAFD00D02D55 /* Build configuration list for PBXNativeTarget "delcom-stoplight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F071D5A1548AAFD00D02D55 /* Debug */,
+				4F071D5B1548AAFD00D02D55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4F071D461548AAFD00D02D55 /* Project object */;
+}

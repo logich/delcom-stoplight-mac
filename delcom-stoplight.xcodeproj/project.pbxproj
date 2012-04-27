@@ -35,6 +35,7 @@
 		4F071D5E1548AB3800D02D55 /* hidapi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = hidapi.h; sourceTree = "<group>"; };
 		4F071D5F1548AC8700D02D55 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		4F071D611548AC9200D02D55 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		4F9519F0154A115D0029094E /* Lync-Availability-Monitor.pl */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; name = "Lync-Availability-Monitor.pl"; path = "delcom-stoplight/Lync-Availability-Monitor.pl"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +58,7 @@
 				4F071D5F1548AC8700D02D55 /* IOKit.framework */,
 				4F071D521548AAFD00D02D55 /* delcom-stoplight */,
 				4F071D501548AAFD00D02D55 /* Products */,
+				4F9519F2154A13720029094E /* Scripts */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +79,14 @@
 				4F071D551548AAFD00D02D55 /* delcom_stoplight.1 */,
 			);
 			path = "delcom-stoplight";
+			sourceTree = "<group>";
+		};
+		4F9519F2154A13720029094E /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				4F9519F0154A115D0029094E /* Lync-Availability-Monitor.pl */,
+			);
+			name = Scripts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +225,7 @@
 				4F071D5B1548AAFD00D02D55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

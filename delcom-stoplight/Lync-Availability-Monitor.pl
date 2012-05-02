@@ -15,37 +15,73 @@
 #     perl -e 'open($h,$ARGV[0]); while (1) { /IPaddress/ and print "LINE: $_" for <$h>; sleep 1 }' snmplistener.log
 
 # line looks like: 	04/26/2012|16:16:14.998 143F:AC5642C0 INFO  :: PublishOrRemoveState: "availability - 6500, starttime - 0.000000, uri - , manual state - 1" "custom id - 0, activity count - 0"
-# values are:
+
+# From http://msdn.microsoft.com/en-us/library/hh380072.aspx
+# Enhanced Presence values are:
 # 3500 - Available
 # 6500 - Busy
-# 9500 - DND
-# 12500 - BRB
-# 15500 - Off Work or Away
-# 
+# 9500 - Do Not Disturb
+# 12500 - Be Right Back
+# 15500 - Away
+# 18500 - Offline
+
+# however Lync sets ranges
+# http://msdn.microsoft.com/en-us/library/hh379878.aspx
+# Lync 2010 interprets the received availability number as follows:
+#
+#Availability number range	Availability mode	Description
+#0-2999				Undefined		The contact is not found in the network.
+#3000-4499			Available		The contact is willing and able to communicate.
+#4500-5999			Available - Idle	The contact is willing but may be unable to communicate.
+#6000-7499			Busy			The contact is able but may be unwilling to communicate.
+#7500-8999			Busy - Idle		The contact is able but may be unwilling to communicate
+#9000-11999			Do Not Disturb		The contact is able but unwilling to communicate.
+#12000-14999			Be Right Back		The contact is willing but unable to communicate.
+#15000-17999			Away			The contact is unable to communicate.
+#18000 and higher		Offline			The contact is not connected to the network.
 
 use File::Tail;
+use Data::Dumper;
 
 $file=File::Tail->new("$ENV{HOME}/Library/Logs/Microsoft-Lync-0.log");
 
 while (defined($line=$file->read)) {
-#while (1) { 
-#    $line = <>;
-    if($line =~ /PublishOrRemoveState/) 
+
+
+    if($line =~ /PublishOrRemoveState: \"availability/) 
     {
-        print ("LINE: $line\n");
-        if ($line =~ /availability - 3500/){
-        system("/usr/local/bin/delcom-stoplight", "green");
+    	chomp($line);
+    	@line = split(/\W/,$line);
+	print "Availability is @line[20]\n";
+
+
+	if (@line[20] <= 2999){
+	# undefined
+            system("/usr/local/bin/delcom-stoplight", "off");
         }
-        if ($line =~ /availability - 6500/){
+
+	if (@line[20] ~~ [3000..5999]){
+	# available 
+            system("/usr/local/bin/delcom-stoplight", "green");
+        }
+
+	if (@line[20] ~~ [6000..11999]){
+	# busy or dnd
             system("/usr/local/bin/delcom-stoplight", "red");
         }
-        if ($line =~ /availability - 12500/){
+
+	if (@line[20] ~~ [12000..17999]){
+	# away
             system("/usr/local/bin/delcom-stoplight", "yellow");
         }
-		sleep 1;
+
+	if (@line[20] >= 18000){
+	# offline
+            system("/usr/local/bin/delcom-stoplight", "off");
+        }
     }
     
     
-    /PublishOrRemoveState: \"availability - / and print ("LINE: $_\n");
+#    /PublishOrRemoveState: \"availability - / and print ("LINE: $_\n");
 }
 

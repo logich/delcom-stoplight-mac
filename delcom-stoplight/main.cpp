@@ -134,7 +134,7 @@ int main(int argc, const char * argv[])
             printf("setting all LED off...\n");
         }    
         
-        if (res < 0) {
+        if (res != 16) {
             printf("Unable to set LED\n");
             printf("Error: %ls\n", hid_error(handle));
         }

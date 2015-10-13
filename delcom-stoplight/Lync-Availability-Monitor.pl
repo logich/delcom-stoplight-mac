@@ -42,8 +42,13 @@
 
 use File::Tail;
 use Data::Dumper;
+use List::Util qw(any);
 
 $file=File::Tail->new("$ENV{HOME}/Library/Logs/Microsoft-Lync-0.log");
+
+@val_avail = (3000..5999);
+@val_busy  = (6000..11999);
+@val_away  = (12000..17999);
 
 while (defined($line=$file->read)) {
 
@@ -52,7 +57,7 @@ while (defined($line=$file->read)) {
     {
     	chomp($line);
     	@line = split(/\W/,$line);
-	print "Availability is @line[20]\n";
+	print "Availability is $line[20]\n";
 
 
 	if (@line[20] <= 2999){
@@ -60,17 +65,21 @@ while (defined($line=$file->read)) {
             system("/usr/local/bin/delcom-stoplight", "off");
         }
 
-	if (@line[20] ~~ [3000..5999]){
+	#smartmatch is experimental in perl 5.18 and does not work
+	#if (@line[20] ~~ [3000..5999]){
+	#replace it with List::Util any
+
+	if (any {$_ == $line[20]} @val_avail){
 	# available 
             system("/usr/local/bin/delcom-stoplight", "green");
         }
 
-	if (@line[20] ~~ [6000..11999]){
+	if (any {$_ == $line[20]} @val_busy){
 	# busy or dnd
             system("/usr/local/bin/delcom-stoplight", "red");
         }
 
-	if (@line[20] ~~ [12000..17999]){
+	if (any {$_ == $line[20]} @val_away){
 	# away
             system("/usr/local/bin/delcom-stoplight", "yellow");
         }

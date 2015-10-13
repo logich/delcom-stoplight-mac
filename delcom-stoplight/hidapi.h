@@ -198,7 +198,7 @@ extern "C" {
 				This function returns the actual number of bytes written and
 				-1 on error.
 		*/
-		int  HID_API_EXPORT HID_API_CALL hid_write(hid_device *device, const unsigned char *data, size_t length);
+		size_t  HID_API_EXPORT HID_API_CALL hid_write(hid_device *device, const unsigned char *data, size_t length);
 
 		/** @brief Read an Input report from a HID device with timeout.
 
@@ -218,7 +218,7 @@ extern "C" {
 				This function returns the actual number of bytes read and
 				-1 on error.
 		*/
-		int HID_API_EXPORT HID_API_CALL hid_read_timeout(hid_device *dev, unsigned char *data, size_t length, int milliseconds);
+		size_t HID_API_EXPORT HID_API_CALL hid_read_timeout(hid_device *dev, unsigned char *data, size_t length, int milliseconds);
 
 		/** @brief Read an Input report from a HID device.
 
@@ -237,7 +237,7 @@ extern "C" {
 				This function returns the actual number of bytes read and
 				-1 on error.
 		*/
-		int  HID_API_EXPORT HID_API_CALL hid_read(hid_device *device, unsigned char *data, size_t length);
+		size_t  HID_API_EXPORT HID_API_CALL hid_read(hid_device *device, unsigned char *data, size_t length);
 
 		/** @brief Set the device handle to be non-blocking.
 
@@ -285,7 +285,7 @@ extern "C" {
 				This function returns the actual number of bytes written and
 				-1 on error.
 		*/
-		int HID_API_EXPORT HID_API_CALL hid_send_feature_report(hid_device *device, const unsigned char *data, size_t length);
+		size_t HID_API_EXPORT HID_API_CALL hid_send_feature_report(hid_device *device, const unsigned char *data, size_t length);
 
 		/** @brief Get a feature report from a HID device.
 
@@ -306,7 +306,7 @@ extern "C" {
 				This function returns the number of bytes read and
 				-1 on error.
 		*/
-		int HID_API_EXPORT HID_API_CALL hid_get_feature_report(hid_device *device, unsigned char *data, size_t length);
+		size_t HID_API_EXPORT HID_API_CALL hid_get_feature_report(hid_device *device, unsigned char *data, size_t length);
 
 		/** @brief Close a HID device.
 

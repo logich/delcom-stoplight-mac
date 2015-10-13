@@ -91,7 +91,7 @@ static int pthread_barrier_wait(pthread_barrier_t *barrier)
 	}
 }
 
-static int return_data(hid_device *dev, unsigned char *data, size_t length);
+static size_t return_data(hid_device *dev, unsigned char *data, size_t length);
 
 /* Linked List of input reports received from the device. */
 struct input_report {
@@ -298,7 +298,7 @@ static int get_string_property(IOHIDDeviceRef device, CFStringRef prop, wchar_t 
 		
 }
 
-static int get_string_property_utf8(IOHIDDeviceRef device, CFStringRef prop, char *buf, size_t len)
+static CFIndex get_string_property_utf8(IOHIDDeviceRef device, CFStringRef prop, char *buf, size_t len)
 {
 	CFStringRef str;
 	if (!len)
@@ -361,9 +361,9 @@ static wchar_t *dup_wcs(const wchar_t *s)
 }
 
 
-static int make_path(IOHIDDeviceRef device, char *buf, size_t len)
+static size_t make_path(IOHIDDeviceRef device, char *buf, size_t len)
 {
-	int res;
+	CFIndex res;
 	unsigned short vid, pid;
 	char transport[32];
 
@@ -790,7 +790,7 @@ return_error:
 	return NULL;
 }
 
-static int set_report(hid_device *dev, IOHIDReportType type, const unsigned char *data, size_t length)
+static size_t set_report(hid_device *dev, IOHIDReportType type, const unsigned char *data, size_t length)
 {
 	const unsigned char *data_to_send;
 	size_t length_to_send;
@@ -829,13 +829,13 @@ static int set_report(hid_device *dev, IOHIDReportType type, const unsigned char
 	return -1;
 }
 
-int HID_API_EXPORT hid_write(hid_device *dev, const unsigned char *data, size_t length)
+size_t HID_API_EXPORT hid_write(hid_device *dev, const unsigned char *data, size_t length)
 {
 	return set_report(dev, kIOHIDReportTypeOutput, data, length);
 }
 
 /* Helper function, so that this isn't duplicated in hid_read(). */
-static int return_data(hid_device *dev, unsigned char *data, size_t length)
+static size_t return_data(hid_device *dev, unsigned char *data, size_t length)
 {
 	/* Copy the data out of the linked list item (rpt) into the
 	   return buffer (data), and delete the liked list item. */
@@ -889,9 +889,9 @@ static int cond_timedwait(const hid_device *dev, pthread_cond_t *cond, pthread_m
 
 }
 
-int HID_API_EXPORT hid_read_timeout(hid_device *dev, unsigned char *data, size_t length, int milliseconds)
+size_t HID_API_EXPORT hid_read_timeout(hid_device *dev, unsigned char *data, size_t length, int milliseconds)
 {
-	int bytes_read = -1;
+	size_t bytes_read = -1;
 
 	/* Lock the access to the report list. */
 	pthread_mutex_lock(&dev->mutex);
@@ -963,7 +963,7 @@ ret:
 	return bytes_read;
 }
 
-int HID_API_EXPORT hid_read(hid_device *dev, unsigned char *data, size_t length)
+size_t HID_API_EXPORT hid_read(hid_device *dev, unsigned char *data, size_t length)
 {
 	return hid_read_timeout(dev, data, length, (dev->blocking)? -1: 0);
 }
@@ -976,12 +976,12 @@ int HID_API_EXPORT hid_set_nonblocking(hid_device *dev, int nonblock)
 	return 0;
 }
 
-int HID_API_EXPORT hid_send_feature_report(hid_device *dev, const unsigned char *data, size_t length)
+size_t HID_API_EXPORT hid_send_feature_report(hid_device *dev, const unsigned char *data, size_t length)
 {
 	return set_report(dev, kIOHIDReportTypeFeature, data, length);
 }
 
-int HID_API_EXPORT hid_get_feature_report(hid_device *dev, unsigned char *data, size_t length)
+size_t HID_API_EXPORT hid_get_feature_report(hid_device *dev, unsigned char *data, size_t length)
 {
 	CFIndex len = length;
 	IOReturn res;

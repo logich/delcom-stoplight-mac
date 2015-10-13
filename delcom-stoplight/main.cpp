@@ -55,16 +55,8 @@ static unsigned char red_off[16] = {101,12,0,4};
 
 int main(int argc, const char * argv[])
 {
-    // handle command line args
-    char *cvalue = NULL;
-    int index;
-    char *command;
-
-    // buffer for TX command to device
-    static unsigned char buf[16];
-    
     // references to device
-    int res;
+    size_t res;
     hid_device *handle;
 	struct hid_device_info *devs, *cur_dev;
 	

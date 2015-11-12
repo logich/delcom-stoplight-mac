@@ -14,6 +14,16 @@
 		4F071D621548AC9200D02D55 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F071D611548AC9200D02D55 /* CoreFoundation.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4FC7A7091BED561300209192 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4FC7A7051BED561200209192 /* Status to Stoplight.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4FC7A6EF1BED561200209192;
+			remoteInfo = "Status to Stoplight";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		4F071D4D1548AAFD00D02D55 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -36,6 +46,7 @@
 		4F071D5F1548AC8700D02D55 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		4F071D611548AC9200D02D55 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		4F9519F0154A115D0029094E /* Lync-Availability-Monitor.pl */ = {isa = PBXFileReference; lastKnownFileType = text.script.perl; name = "Lync-Availability-Monitor.pl"; path = "delcom-stoplight/Lync-Availability-Monitor.pl"; sourceTree = "<group>"; };
+		4FC7A7051BED561200209192 /* Status to Stoplight.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Status to Stoplight.xcodeproj"; path = "Status to Stoplight/Status to Stoplight.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +95,18 @@
 		4F9519F2154A13720029094E /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				4FC7A7051BED561200209192 /* Status to Stoplight.xcodeproj */,
 				4F9519F0154A115D0029094E /* Lync-Availability-Monitor.pl */,
 			);
 			name = Scripts;
+			sourceTree = "<group>";
+		};
+		4FC7A7061BED561200209192 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4FC7A70A1BED561300209192 /* Status to Stoplight.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,12 +147,28 @@
 			mainGroup = 4F071D441548AAFD00D02D55;
 			productRefGroup = 4F071D501548AAFD00D02D55 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4FC7A7061BED561200209192 /* Products */;
+					ProjectRef = 4FC7A7051BED561200209192 /* Status to Stoplight.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4F071D4E1548AAFD00D02D55 /* delcom-stoplight */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4FC7A70A1BED561300209192 /* Status to Stoplight.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "Status to Stoplight.app";
+			remoteRef = 4FC7A7091BED561300209192 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4F071D4B1548AAFD00D02D55 /* Sources */ = {

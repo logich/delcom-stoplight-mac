@@ -8,6 +8,8 @@ The C++ code produces an executable that will turn on and off each one of thethr
 
 A perl script is also included that will monitor Lync for Mac and update the light color based on the status of the user. Diagnostic logging must be enabled in Lync for Mac for this to work. The script requires the File::Tail module be installed on your system (e.g. cpan -e 'install File::Tail'). 
 
+An applescript app is also included that will read the availability displayed in in the Lync app window and change the stoplight every 60 seconds to match. It does not require lync diagnotsic logging to be enabled but does need to have accessability features turned, and the applescript app exlicitly granted permissions in the privacy and security preference pane..
+
 Usage
 =====
 
@@ -29,9 +31,11 @@ Device Found
   Product:      USB IO Controller 
   Release:      1f
 
+The applescript when run also activates Lync. It will continue to run and check the status of the availability dropdown every 60 seconds. It can be easily set to run at login.
+
 Installation
 ============
-It is suggested to install the binary, the script, and the man page in the /usr/local tree.
+It is suggested to install the binary, the applescript app, the script, and the man page in the /usr/local tree.
 
 Ackoledgements
 ==============

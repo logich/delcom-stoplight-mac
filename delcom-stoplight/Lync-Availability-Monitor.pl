@@ -60,13 +60,13 @@ while (defined($line=$file->read)) {
 	print "Availability is $line[20]\n";
 
 
-	if (@line[20] <= 2999){
+	if ($line[20] <= 2999){
 	# undefined
             system("/usr/local/bin/delcom-stoplight", "off");
         }
 
 	#smartmatch is experimental in perl 5.18 and does not work
-	#if (@line[20] ~~ [3000..5999]){
+	#if ($line[20] ~~ [3000..5999]){
 	#replace it with List::Util any
 
 	if (any {$_ == $line[20]} @val_avail){
@@ -84,7 +84,7 @@ while (defined($line=$file->read)) {
             system("/usr/local/bin/delcom-stoplight", "yellow");
         }
 
-	if (@line[20] >= 18000){
+	if ($line[20] >= 18000){
 	# offline
             system("/usr/local/bin/delcom-stoplight", "off");
         }

@@ -37,7 +37,7 @@ Installation
 ============
 It is suggested to install the binary, the applescript app, the script, and the man page in the /usr/local tree.
 
-Ackoledgements
+Acknoledgements
 ==============
 This code makes use of Alan Ott's HIDAPI - Multi-Platform library for communication with HID devices.
 HIDAPI's public source code repository is located at: http://github.com/signal11/hidapi 
